@@ -57,3 +57,4 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 #Prisma CFI Generated Report from each Run
 /public/cfiReports/generated.pdf
+.vercel
