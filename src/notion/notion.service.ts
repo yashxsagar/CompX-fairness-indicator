@@ -200,7 +200,8 @@ export class NotionService {
           `Found ${response.results.length} new entries to process.`,
         );
 
-        for (const page of response.results) {
+        // for (const page of response.results) {
+        const batchPromises = response.results.map(async (page) => {
           if (this.isPageObjectResponse(page)) {
             const jobTitle = this.getSelectProperty(
               page.properties['Job Title'],
@@ -239,7 +240,8 @@ export class NotionService {
               );
             }
           }
-        }
+        });
+        await Promise.all(batchPromises);
       } catch (error) {
         this.logger.error(`Error during polling: ${error.message}`);
       }
