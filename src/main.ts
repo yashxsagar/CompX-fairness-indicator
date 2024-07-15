@@ -13,7 +13,7 @@ async function bootstrap() {
     }),
   );
   app.use(cookieParser());
-  const port = process.env.PORT || 3009;
+  const port = process.env.PORT || 3000;
   await app.listen(port);
 }
 bootstrap();
